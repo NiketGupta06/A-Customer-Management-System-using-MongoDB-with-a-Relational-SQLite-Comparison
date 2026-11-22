@@ -1,0 +1,582 @@
+Windows PowerShell 5.1
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS D:\D Downloads\Group_Project\2_Code> python -m venv venv
+PS D:\D Downloads\Group_Project\2_Code> venv\Scripts\activate
+(venv) PS D:\D Downloads\Group_Project\2_Code> pip install -r requirements.txt
+WARNING: Cache entry deserialization failed, entry ignored
+Collecting pymongo[srv] (from -r requirements.txt (line 1))
+  Using cached pymongo-4.20.1-cp314-cp314-win_amd64.whl.metadata (10 kB)
+WARNING: pymongo 4.20.1 does not provide the extra 'srv'
+WARNING: Cache entry deserialization failed, entry ignored
+Collecting dnspython<3.0.0,>=2.7.0 (from pymongo[srv]->-r requirements.txt (line 1))
+  Using cached dnspython-2.9.2-py3-none-any.whl.metadata (5.8 kB)
+Using cached pymongo-4.20.1-cp314-cp314-win_amd64.whl (827 kB)
+Using cached dnspython-2.9.2-py3-none-any.whl (360 kB)
+Installing collected packages: dnspython, pymongo
+Successfully installed dnspython-2.9.2 pymongo-4.20.1
+WARNING: Cache entry deserialization failed, entry ignored
+
+[notice] A new release of pip is available: 26.0.1 -> 26.3
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(venv) PS D:\D Downloads\Group_Project\2_Code> python db.py
+Connected to MongoDB Atlas successfully!
+(venv) PS D:\D Downloads\Group_Project\2_Code> python main.py
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 1
+Inserted sample customer with _id: 6b02fa1a2ff1b22084965539
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 2
+{'_id': ObjectId('6b02fa1a2ff1b22084965539'), 'customerID': 12345, 'name': {'first': 'John', 'last': 'Doe'}, 'address': [{'location': 'work', 'address': {'street': '16 Hatfields', 'city': 'London', 'postal_code': 'SE1 8DJ'}, 'country': 'United Kingdom', 'geo': {'type': 'Point', 'coord': [51.5065752, -0.109081]}}], 'email': 'john.doe@acme.com', 'phone': [{'location': 'work', 'number': '+44-1234567890'}], 'dob': '1977-04-01T05:00:00Z', 'interests': ['devops', 'data science'], 'annualSpend': 1292815.75}
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 3
+Customer ID: 1001
+First name: Niket
+Last name: Gupta
+Email: niket@gmail.com
+City: Delhi
+Annual spend: 100000
+Customer added.
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 2
+{'_id': ObjectId('6b02fa1a2ff1b22084965539'), 'customerID': 12345, 'name': {'first': 'John', 'last': 'Doe'}, 'address': [{'location': 'work', 'address': {'street': '16 Hatfields', 'city': 'London', 'postal_code': 'SE1 8DJ'}, 'country': 'United Kingdom', 'geo': {'type': 'Point', 'coord': [51.5065752, -0.109081]}}], 'email': 'john.doe@acme.com', 'phone': [{'location': 'work', 'number': '+44-1234567890'}], 'dob': '1977-04-01T05:00:00Z', 'interests': ['devops', 'data science'], 'annualSpend': 1292815.75}
+{'_id': ObjectId('6b02fa462ff1b2208496553a'), 'customerID': 1001, 'name': {'first': 'Niket', 'last': 'Gupta'}, 'email': 'niket@gmail.com', 'address': [{'location': 'home', 'address': {'city': 'Delhi'}}], 'annualSpend': 100000.0}
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 5
+Customer ID: 1001
+Phone number: 9893246711
+Phone number added.
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 2
+{'_id': ObjectId('6b02fa1a2ff1b22084965539'), 'customerID': 12345, 'name': {'first': 'John', 'last': 'Doe'}, 'address': [{'location': 'work', 'address': {'street': '16 Hatfields', 'city': 'London', 'postal_code': 'SE1 8DJ'}, 'country': 'United Kingdom', 'geo': {'type': 'Point', 'coord': [51.5065752, -0.109081]}}], 'email': 'john.doe@acme.com', 'phone': [{'location': 'work', 'number': '+44-1234567890'}], 'dob': '1977-04-01T05:00:00Z', 'interests': ['devops', 'data science'], 'annualSpend': 1292815.75}
+{'_id': ObjectId('6b02fa462ff1b2208496553a'), 'customerID': 1001, 'name': {'first': 'Niket', 'last': 'Gupta'}, 'email': 'niket@gmail.com', 'address': [{'location': 'home', 'address': {'city': 'Delhi'}}], 'annualSpend': 100000.0, 'phone': [{'location': 'mobile', 'number': '9893246711'}]}
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 3
+Customer ID: 1002
+First name: Sonakshi
+Last name: Panda
+Email: sona@gmail.com
+City: Patiala
+Annual spend: 200000
+Customer added.
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 2
+{'_id': ObjectId('6b02fa1a2ff1b22084965539'), 'customerID': 12345, 'name': {'first': 'John', 'last': 'Doe'}, 'address': [{'location': 'work', 'address': {'street': '16 Hatfields', 'city': 'London', 'postal_code': 'SE1 8DJ'}, 'country': 'United Kingdom', 'geo': {'type': 'Point', 'coord': [51.5065752, -0.109081]}}], 'email': 'john.doe@acme.com', 'phone': [{'location': 'work', 'number': '+44-1234567890'}], 'dob': '1977-04-01T05:00:00Z', 'interests': ['devops', 'data science'], 'annualSpend': 1292815.75}
+{'_id': ObjectId('6b02fa462ff1b2208496553a'), 'customerID': 1001, 'name': {'first': 'Niket', 'last': 'Gupta'}, 'email': 'niket@gmail.com', 'address': [{'location': 'home', 'address': {'city': 'Delhi'}}], 'annualSpend': 100000.0, 'phone': [{'location': 'mobile', 'number': '9893246711'}]}
+{'_id': ObjectId('6b02fa9b2ff1b2208496553b'), 'customerID': 1002, 'name': {'first': 'Sonakshi', 'last': 'Panda'}, 'email': 'sona@gmail.com', 'address': [{'location': 'home', 'address': {'city': 'Patiala'}}], 'annualSpend': 200000.0}
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 6
+Customer ID: 1002
+Deleted: 1
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 7
+Three customers with three different structures, stored in ONE collection:
+{'customerID': 1, 'name': 'Asha', 'email': 'asha@mail.com'}
+{'customerID': 2, 'name': 'Ravi', 'email': 'ravi@mail.com', 'twitter_handle': '@ravi_dev'}
+{'customerID': 3, 'name': 'Meera', 'email': 'meera@mail.com', 'interests': ['music', 'travel'], 'loyalty': {'tier': 'gold', 'points': 1200}}
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 8
+Collection with validation rules created.
+VALID document -> accepted
+INVALID document -> REJECTED by schema validation
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 9
+
+1) Customers with annual spend > 1,000,000:
+{'name': {'first': 'John', 'last': 'Doe'}, 'annualSpend': 1292815.75}
+
+2) Customers interested in 'devops':
+{'name': {'first': 'John', 'last': 'Doe'}}
+
+Customers by city (aggregation pipeline):
+{'_id': 'Delhi', 'customers': 1, 'avg_spend': 100000.0, 'min_spend': 100000.0, 'max_spend': 100000.0}
+{'_id': 'London', 'customers': 1, 'avg_spend': 1292815.75, 'min_spend': 1292815.75, 'max_spend': 1292815.75}
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 10
+Inserted 50000 customers.
+Without index: 57.91 ms
+With index   : 26.67 ms
+Speed-up: about 2.2x faster
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 2
+{'_id': ObjectId('6b02fa1a2ff1b22084965539'), 'customerID': 12345, 'name': {'first': 'John', 'last': 'Doe'}, 'address': [{'location': 'work', 'address': {'street': '16 Hatfields', 'city': 'London', 'postal_code': 'SE1 8DJ'}, 'country': 'United Kingdom', 'geo': {'type': 'Point', 'coord': [51.5065752, -0.109081]}}], 'email': 'john.doe@acme.com', 'phone': [{'location': 'work', 'number': '+44-1234567890'}], 'dob': '1977-04-01T05:00:00Z', 'interests': ['devops', 'data science'], 'annualSpend': 1292815.75}
+{'_id': ObjectId('6b02fa462ff1b2208496553a'), 'customerID': 1001, 'name': {'first': 'Niket', 'last': 'Gupta'}, 'email': 'niket@gmail.com', 'address': [{'location': 'home', 'address': {'city': 'Delhi'}}], 'annualSpend': 100000.0, 'phone': [{'location': 'mobile', 'number': '9893246711'}]}
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 11
+Stock created: laptop = 5
+Order placed: 2 x laptop
+Transaction ABORTED, nothing was changed: Not enough stock
+Final stock: {'item': 'laptop', 'quantity': 3}
+Orders     : [{'customerID': 12345, 'item': 'laptop', 'qty': 2}]
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 12
+SQL: 4 tables, 3 JOINs needed to rebuild one customer:
+('John', 'Doe', 'London', '+44-1234567890', 'data science')
+('John', 'Doe', 'London', '+44-1234567890', 'devops')
+
+SQL: 'ALTER TABLE' was required to add one new field.
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 0
+Goodbye!
+(venv) PS D:\D Downloads\Group_Project\2_Code>
+
+Windows PowerShell 5.1
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Lenovo> cd "d:\D Downloads\Group_Project\2_Code"; python -c "import mongo_demo as m; m.find_by_city('Delhi'); print('---'); m.find_by_city('London')"
+{'first': 'Niket', 'last': 'Gupta'} - niket@gmail.com
+---
+{'first': 'John', 'last': 'Doe'} - john.doe@acme.com
+PS D:\D Downloads\Group_Project\2_Code>
+
+Windows PowerShell 5.1
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Lenovo> cd "d:\D Downloads\Group_Project\2_Code"; python -c "import mongo_demo as m; m.find_by_city('Delhi'); print('---'); m.find_by_city('London')"
+{'first': 'Niket', 'last': 'Gupta'} - niket@gmail.com
+---
+{'first': 'John', 'last': 'Doe'} - john.doe@acme.com
+PS D:\D Downloads\Group_Project\2_Code> python -c "import mongo_demo as m; m.load_big_data(100000)"
+Inserted 100000 customers.
+PS D:\D Downloads\Group_Project\2_Code> python main.py
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 10
+Error: ac-fnjr0k8-shard-00-01.pqxpjig.mongodb.net:27017: [Errno 11002] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-fnjr0k8-shard-00-00.pqxpjig.mongodb.net:27017: [Errno 11002] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-fnjr0k8-shard-00-02.pqxpjig.mongodb.net:27017: [Errno 11002] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 6b031ba3b4b3996cd9054da9, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-fnjr0k8-shard-00-00.pqxpjig.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-fnjr0k8-shard-00-00.pqxpjig.mongodb.net:27017: [Errno 11002] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-fnjr0k8-shard-00-01.pqxpjig.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-fnjr0k8-shard-00-01.pqxpjig.mongodb.net:27017: [Errno 11002] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-fnjr0k8-shard-00-02.pqxpjig.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-fnjr0k8-shard-00-02.pqxpjig.mongodb.net:27017: [Errno 11002] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+
+Windows PowerShell 5.1
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS D:\D Downloads\Group_Project\2_Code> python main.py
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 2
+{'_id': ObjectId('6b02fa1a2ff1b22084965539'), 'customerID': 12345, 'name': {'first': 'John', 'last': 'Doe'}, 'address': [{'location': 'work', 'address': {'street': '16 Hatfields', 'city': 'London', 'postal_code': 'SE1 8DJ'}, 'country': 'United Kingdom', 'geo': {'type': 'Point', 'coord': [51.5065752, -0.109081]}}], 'email': 'john.doe@acme.com', 'phone': [{'location': 'work', 'number': '+44-1234567890'}], 'dob': '1977-04-01T05:00:00Z', 'interests': ['devops', 'data science'], 'annualSpend': 1292815.75}
+{'_id': ObjectId('6b02fa462ff1b2208496553a'), 'customerID': 1001, 'name': {'first': 'Niket', 'last': 'Gupta'}, 'email': 'niket@gmail.com', 'address': [{'location': 'home', 'address': {'city': 'Delhi'}}], 'annualSpend': 100000.0, 'phone': [{'location': 'mobile', 'number': '9893246711'}]}
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 10
+Without index (total time incl. network): 59.27 ms
+WITHOUT index:
+   Plan used          : COLLSCAN (full scan)
+   Documents examined : 100000
+   Server time        : 64 ms
+
+With index (total time incl. network): 28.57 ms
+WITH index:
+   Plan used          : COLLSCAN (full scan)
+   Documents examined : 1
+   Server time        : 0 ms
+
+Speed-up (total time): about 2.1x faster
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 4
+City: Delhi
+{'first': 'Niket', 'last': 'Gupta'} - niket@gmail.com
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 12
+SQL: 4 tables, 3 JOINs needed to rebuild one customer:
+('John', 'Doe', 'London', '+44-1234567890', 'data science')
+('John', 'Doe', 'London', '+44-1234567890', 'devops')
+
+SQL: 'ALTER TABLE' was required to add one new field.
+
+=============================================
+  Document Data Model - Demo Project
+=============================================
+ 1. Insert sample customer (from the paper)
+ 2. View customers
+ 3. Add a customer
+ 4. Find customers by city
+ 5. Add phone number to a customer
+ 6. Delete a customer
+ 7. Flexible schema demo
+ 8. Schema validation demo
+ 9. Query and aggregation demo
+10. Indexing performance demo
+11. ACID transaction demo
+12. SQL (SQLite) comparison
+ 0. Exit
+
+Enter your choice: 9
+
+1) Customers with annual spend > 1,000,000:
+{'name': {'first': 'John', 'last': 'Doe'}, 'annualSpend': 1292815.75}
+
+2) Customers interested in 'devops':
+{'name': {'first': 'John', 'last': 'Doe'}}
+
+Customers by city (aggregation pipeline):
+{'_id': 'London', 'customers': 1, 'avg_spend': 1292815.75, 'min_spend': 1292815.75, 'max_spend': 1292815.75}
+{'_id': 'Delhi', 'customers': 1, 'avg_spend': 100000.0, 'min_spend': 100000.0, 'max_spend': 100000.0}
